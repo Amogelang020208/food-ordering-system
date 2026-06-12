@@ -1,0 +1,10 @@
+package com.jumpstart.food_ordering_system.service;
+
+import com.jumpstart.food_ordering_system.dto.CategoryDto;
+import java.util.List;
+
+// This interface defines the contract for the service layer
+public interface CategoryService {
+
+    List<CategoryDto> getAllCategories();
+}
