@@ -39,3 +39,13 @@ Dependency Injection is when an object receives its required dependencies from a
 - dto - Data Transfer Objects for passing data
 - config - Application configuration classes
 - exception - Custom exception handling
+
+## Endpoints
+
+| Method | URL                       | Body         |
+|--------|---------------------------|--------------|
+| POST   | /api/categories           | { "name" }   |
+| GET    | /api/categories           | -            |
+| GET    | /api/categories/{id}      | -            |
+| PUT    | /api/categories/{id}      | { "name" }   |
+| DELETE | /api/categories/{id}      | -            |
