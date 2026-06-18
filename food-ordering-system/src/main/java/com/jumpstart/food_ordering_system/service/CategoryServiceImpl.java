@@ -46,4 +46,20 @@ public class CategoryServiceImpl implements CategoryService {
         dto.setName(category.getName());
         return dto;
     }
+
+    @Override
+    public CategoryDto addCategory(CategoryDto dto) {
+        // Map the incoming DTO to a new Category entity
+        Category category = new Category();
+        category.setName(dto.getName());
+
+        // Save the entity to the database
+        Category savedCategory = categoryRepository.save(category);
+
+        // Map the saved entity back to a DTO (now with its generated id)
+        CategoryDto savedDto = new CategoryDto();
+        savedDto.setId(savedCategory.getId());
+        savedDto.setName(savedCategory.getName());
+        return savedDto;
+    }
 }
