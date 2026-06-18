@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,5 +43,11 @@ public class CategoryController {
     public ResponseEntity<CategoryDto> addCategory(@RequestBody @Valid CategoryDto dto) {
         CategoryDto created = categoryService.addCategory(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+
+    // PUT /api/categories/{id} - updates an existing category
+    @PutMapping("/{id}")
+    public CategoryDto updateCategory(@PathVariable Long id, @RequestBody @Valid CategoryDto dto) {
+        return categoryService.updateCategory(id, dto);
     }
 }
