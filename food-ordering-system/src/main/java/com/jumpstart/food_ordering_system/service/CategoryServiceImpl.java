@@ -79,4 +79,13 @@ public class CategoryServiceImpl implements CategoryService {
         updatedDto.setName(updatedCategory.getName());
         return updatedDto;
     }
+
+    @Override
+    public void deleteCategory(Long id) {
+        // Find the existing category, or throw an exception if it doesn't exist
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + id));
+
+        categoryRepository.delete(category);
+    }
 }
