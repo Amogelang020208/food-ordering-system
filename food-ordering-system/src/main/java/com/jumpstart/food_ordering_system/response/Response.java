@@ -1,4 +1,4 @@
-﻿package com.jumpstart.food_ordering_system.response;
+package com.jumpstart.food_ordering_system.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -28,19 +28,11 @@ public class Response<T> {
                 .build();
     }
 
-    public static <T> Response<T> success(T data) {
-        return success(data, "Success");
-    }
-
     public static <T> Response<T> error(int statusCode, String message) {
         return Response.<T>builder()
                 .statusCode(statusCode)
                 .message(message)
                 .timestamp(LocalDateTime.now())
                 .build();
-    }
-
-    public static <T> Response<T> error(String message) {
-        return error(400, message);
     }
 }
