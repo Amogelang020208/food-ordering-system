@@ -19,7 +19,7 @@ public class Response<T> {
     private T data;
     private LocalDateTime timestamp;
 
-    public static <T> Response<T> success(T data, String message) {
+    public static <T> Response<T> success(String message, T data) {
         return Response.<T>builder()
                 .statusCode(200)
                 .message(message)
@@ -28,9 +28,9 @@ public class Response<T> {
                 .build();
     }
 
-    public static <T> Response<T> error(int statusCode, String message) {
+    public static <T> Response<T> error(int code, String message) {
         return Response.<T>builder()
-                .statusCode(statusCode)
+                .statusCode(code)
                 .message(message)
                 .timestamp(LocalDateTime.now())
                 .build();
