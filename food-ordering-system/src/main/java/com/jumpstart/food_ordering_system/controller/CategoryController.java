@@ -20,6 +20,6 @@ public class CategoryController {
     @GetMapping("/category")
     public Response<List<CategoryDto>> getAllCategories() {
         List<CategoryDto> categories = categoryService.getAllCategories();
-        return Response.success(categories, "Categories retrieved successfully");
+        return Response.success("Categories retrieved successfully", categories);
     }
 }
